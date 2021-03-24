@@ -28,8 +28,9 @@ const pokeGen = async () => {
     const randomCity = randEl(cities);
     const poke = new Pokemon({
       Location: `${randomCity.city}, ${randomCity.state}`,
-      Name: `${randomNature} ${randomPoke.name.english}`,
-      Id: `${randomPoke.id}`,
+      Name: `${randomPoke.name.english}`,
+      Nature: `${randomNature}`,
+      DexNum: `${randomPoke.id}`,
       Level: `${Math.floor(Math.random() * 100) + 1}`,
       Sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/${randomPoke.id}.png`,
     });
@@ -37,5 +38,5 @@ const pokeGen = async () => {
   }
 };
 pokeGen().then(() => {
-  mongoose.connection.closed();
+  mongoose.connection.close();
 });

@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PokemonSchema = new Schema({
-  Id:Number,  
+  DexNum:Number,  
   Name: String,
+  Nature: String,
   Ability: String,
   Level: Number,
   Location: String,
