@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding a Wild Pokemon</title>
+  </head>
+  <body>
+    <form action="/pokemon" method="POST">
+      <div>
+        <label for="name" id="name">Name</label>
+        <select name="pokemon[name]" id="name">
+          <% for(let pokemon of pokedex) { %>
+          <option value="<%=pokemon.name.english%>">
+            <%=pokemon.name.english%>
+          </option>
+
+          <% } %>
+        </select>
+      </div>
+
+      <div>
+        <label for="nature" id="nature">Nature</label>
+        <select name="pokemon[nature]" id="nature">
+          <% for(let nature of natures) { %>
+          <option value="<%=nature%>"><%=nature%></option>
+          <% } %>
+        </select>
+      </div>
+
+      <button>Add!</button>
+    </form>
+  </body>
+</html>
