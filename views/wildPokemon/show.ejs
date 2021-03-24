@@ -11,5 +11,24 @@
     <h1><%= pokemon.Name %> </h1>
     <h2> <%= pokemon.Location %>    </h2>
 
+
+
+<form action="/pokemon/<%=pokemon._id%>?_method=DELETE" method="POST">
+
+<button>Delete</button>
+
+
+</form>
+
+
+    <footer>
+        <a href="/pokemon/<%= pokemon._id %>/edit ">Edit</a>
+        <a href="/pokemon">Back to List</a>
+    </footer>
+
+
 </body>
+
+
+
 </html>

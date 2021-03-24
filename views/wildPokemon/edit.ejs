@@ -4,37 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adding a Wild Pokemon</title>
+    <title>Editing a Wild Pokemon</title>
   </head>
   <body>
-    <form action="/pokemon" method="POST">
+    <form action="/pokemon/<%=oldPoke._id%>?_method=PUT" method="POST">
       <div>
         <label for="name" id="name">Name</label>
         <select name="pokemon[DexNum]" id="name">
-          <% for(let pokemon of pokedex) { %>
+          <% for(let pokemon of pokedex) { %> <% if (pokemon.id ===
+          oldPoke.DexNum) { %>
+          <option value="<%=pokemon.id%>" selected>
+            <%=pokemon.name.english%>
+          </option>
+          <% } else { %>
           <option value="<%=pokemon.id%>"><%=pokemon.name.english%></option>
-
-          <% } %>
+          <% } %> <% } %>
         </select>
       </div>
 
       <div>
         <label for="nature" id="nature">Nature</label>
         <select name="pokemon[Nature]" id="nature">
-          <% for(let nature of natures) { %>
+          <% for(let nature of natures) { %> <% if (nature === oldPoke.Nature) {
+          %>
+          <option value="<%=nature%>" selected><%=nature%></option>
+          <% } else { %>
           <option value="<%=nature%>"><%=nature%></option>
-          <% } %>
+          <% } %> <% } %>
         </select>
       </div>
       <div>
         <label for="location" id="location">Location</label>
-        <input type="text" name="pokemon[Location]" id="location" />
+        <input type="text" name="pokemon[Location]" id="location" value="<%=oldPoke.Location%>" />
       </div>
-      <button>Add!</button>
+      <button>Update!</button>
     </form>
 
-<a href="/pokemon">Cancel</a>
-
-
+    <a href="/pokemon/<%=oldPoke._id%>">Cancel</a>
   </body>
 </html>
