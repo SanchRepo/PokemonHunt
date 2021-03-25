@@ -1,5 +1,5 @@
 # PokemonHunt
-Concept
+Concept:
 As a long time pokemon fan, I thought it would be fun to make a website that would benefit people living in the world of pokemon.
 Let's say there was a pokemon that you as a trainer failed to catch, but your pokedex captured some info on it.
 You could post that info onto this site along with the location, so that other trainers could help you find it.
