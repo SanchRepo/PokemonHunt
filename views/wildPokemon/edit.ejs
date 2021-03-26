@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editing a Wild Pokemon</title>
-  </head>
+<% layout("layouts/boilerplate") %>
+
   <body>
     <form action="/pokemon/<%=oldPoke._id%>?_method=PUT" method="POST">
       <div>
@@ -42,4 +36,3 @@
 
     <a href="/pokemon/<%=oldPoke._id%>">Cancel</a>
   </body>
-</html>
