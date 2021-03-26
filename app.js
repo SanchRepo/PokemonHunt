@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
+const engine = require("ejs-mate")
 
 const Pokemon = require("./models/pokemon");
 const natures = require("./PokeGen/natures");
@@ -23,6 +24,7 @@ mongoose
     console.log(err);
   });
 
+app.engine('ejs',engine)
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
