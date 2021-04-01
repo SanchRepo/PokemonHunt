@@ -8,7 +8,8 @@ const PokemonSchema = new Schema({
   Ability: String,
   Level: Number,
   Location: String,
-  Sprite: String
+  Sprite: String,
+  Description: String
 });
 
 module.exports = mongoose.model("Pokemon", PokemonSchema);
