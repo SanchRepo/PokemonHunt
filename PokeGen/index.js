@@ -33,6 +33,7 @@ const pokeGen = async () => {
       DexNum: `${randomPoke.id}`,
       Level: `${Math.floor(Math.random() * 100) + 1}`,
       Sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/${randomPoke.id}.png`,
+      Description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae officia expedita, totam quisquam id praesentium vero sequi quia asperiores iusto explicabo accusamus nulla animi sunt, quos error eos cumque a!"
     });
     await poke.save();
   }
