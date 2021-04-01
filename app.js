@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
-const engine = require("ejs-mate")
+const engine = require("ejs-mate");
 
 const Pokemon = require("./models/pokemon");
 const natures = require("./PokeGen/natures");
@@ -24,7 +24,12 @@ mongoose
     console.log(err);
   });
 
-app.engine('ejs',engine)
+// function DefSprite(data) {
+//   document.getElementById(
+//     "img-url"
+//   ).value = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/${data.value}.png`;
+// }
+app.engine("ejs", engine);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
