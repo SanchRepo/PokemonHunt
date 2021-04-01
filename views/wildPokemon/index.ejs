@@ -2,12 +2,17 @@
 
 <body>
     <h1> Current Wild Pokemon</h1>
-    <ul>
     <% for( let pokemon of wildPokemon) { %>
-        <li> <a href="/pokemon/<%=pokemon._id%>"><%=pokemon.Nature%> <%=pokemon.Name%></a> </li>
+        <div class="card d-inline-block" style="width: 18rem;">
+            <img src="<%= pokemon.Sprite %> " class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=pokemon.Nature%> <%=pokemon.Name%></h5>
+              <p class="card-text"><%=pokemon.Description%></p>
+              <a href="/pokemon/<%=pokemon._id%>" class="btn btn-primary">Show Details</a>
+            </div>
+          </div>
 
    <% } %>
-</ul>
 
 <footer>
     Found a new pokemon?<a href="/pokemon/new"> Add here</a>

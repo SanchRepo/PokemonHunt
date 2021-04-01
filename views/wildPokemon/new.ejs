@@ -1,33 +1,64 @@
 <% layout("layouts/boilerplate") %>
 
-  <body>
-    <form action="/pokemon" method="POST">
-      <div>
-        <label for="name" id="name">Name</label>
-        <select name="pokemon[DexNum]" id="name">
-          <% for(let pokemon of pokedex) { %>
-          <option value="<%=pokemon.id%>"><%=pokemon.name.english%></option>
+<body>
+  <h1 class="text-center">New Pokemon</h1>
+  <form action="/pokemon" method="POST">
+    <div class="mb-3">
+      <label for="name" id="name" class="form-label">Name</label>
+      <select name="pokemon[DexNum]" id="name" class="form-select">
+        <% for(let pokemon of pokedex) { %>
+        <option value="<%=pokemon.id%>"><%=pokemon.name.english%></option>
 
-          <% } %>
-        </select>
-      </div>
+        <% } %>
+      </select>
+    </div>
 
-      <div>
-        <label for="nature" id="nature">Nature</label>
-        <select name="pokemon[Nature]" id="nature">
-          <% for(let nature of natures) { %>
-          <option value="<%=nature%>"><%=nature%></option>
-          <% } %>
-        </select>
-      </div>
-      <div>
-        <label for="location" id="location">Location</label>
-        <input type="text" name="pokemon[Location]" id="location" />
-      </div>
-      <button>Add!</button>
-    </form>
+    <div class="mb-3">
+      <label for="nature" id="nature" class="form-label">Nature</label>
+      <select name="pokemon[Nature]" id="nature" class="form-select">
+        <% for(let nature of natures) { %>
+        <option value="<%=nature%>"><%=nature%></option>
+        <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="location" id="location" class="form-label">Location</label>
+      <input
+        type="text"
+        name="pokemon[Location]"
+        id="location"
+        class="form-control"
+      />
+    </div>
 
-<a href="/pokemon">Cancel</a>
+    <label for="img-url" class="form-label">Img URL</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="img-label"
+        >https://example.com/pokemon.jpg/</span
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="img-url"
+        name="pokemon[Sprite]"
+        aria-describedby="img-label"
+      />
+    </div>
 
+    <div class="mb-3">
+      <label for="description" id="description" class="form-label"
+        >Description</label
+      >
+      <textarea
+        type="text"
+        name="pokemon[Description]"
+        id="Description"
+        class="form-control"
+      ></textarea>
+    </div>
 
-  </body>
+    <button class="btn btn-success">Add!</button>
+  </form>
+
+  <a href="/pokemon">Cancel</a>
+</body>
