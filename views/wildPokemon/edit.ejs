@@ -1,24 +1,40 @@
+
 <% layout("layouts/boilerplate") %>
 
-  <body>
-    <form action="/pokemon/<%=oldPoke._id%>?_method=PUT" method="POST">
-      <div>
-        <label for="name" id="name">Name</label>
-        <select name="pokemon[DexNum]" id="name">
-          <% for(let pokemon of pokedex) { %> <% if (pokemon.id ===
-          oldPoke.DexNum) { %>
-          <option value="<%=pokemon.id%>" selected>
-            <%=pokemon.name.english%>
-          </option>
-          <% } else { %>
-          <option value="<%=pokemon.id%>"><%=pokemon.name.english%></option>
-          <% } %> <% } %>
-        </select>
-      </div>
+<body>
+  <h1 class="text-center">Update Pokemon Info</h1>
+  <form action="/pokemon/<%=oldPoke._id%>?_method=PUT" method="POST">
 
-      <div>
-        <label for="nature" id="nature">Nature</label>
-        <select name="pokemon[Nature]" id="nature">
+    <div class="mb-3">
+      <label for="level" id="level" class="form-label">Level</label>
+      <input
+        type="number"
+        name="pokemon[Level]"
+        id="level"
+        class="form-control"
+        value= <%= oldPoke.Level %> 
+      />
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="name" id="name" class="form-label">Name</label>
+      <select name="pokemon[DexNum]" id="name" class="form-select">
+        <% for(let pokemon of pokedex) { %> <% if (pokemon.id ===
+        oldPoke.DexNum) { %>
+        <option value="<%=pokemon.id%>" selected>
+          <%=pokemon.name.english%>
+        </option>
+        <% } else { %>
+        <option value="<%=pokemon.id%>"><%=pokemon.name.english%></option>
+        <% } %> <% } %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="nature" id="nature" class="form-label">Nature</label>
+      <select name="pokemon[Nature]" id="nature" class="form-select">
           <% for(let nature of natures) { %> <% if (nature === oldPoke.Nature) {
           %>
           <option value="<%=nature%>" selected><%=nature%></option>
@@ -26,13 +42,51 @@
           <option value="<%=nature%>"><%=nature%></option>
           <% } %> <% } %>
         </select>
-      </div>
-      <div>
-        <label for="location" id="location">Location</label>
-        <input type="text" name="pokemon[Location]" id="location" value="<%=oldPoke.Location%>" />
-      </div>
-      <button>Update!</button>
-    </form>
+    </div>
+    <div class="mb-3">
+      <label for="location" id="location" class="form-label">Location</label>
+      <input
+        type="text"
+        name="pokemon[Location]"
+        id="location"
+        class="form-control"
+        value="<%=oldPoke.Location%>"
+      />
+    </div>
 
+    <label for="img-url" class="form-label">Img URL</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="img-label"
+        >https://example.com/pokemon.jpg/</span
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="img-url"
+        name="pokemon[Sprite]"
+        aria-describedby="img-label"
+        value="<%= oldPoke.Sprite %>"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="description" id="description" class="form-label"
+        >Description</label
+      >
+      <textarea
+        type="text"
+        name="pokemon[Description]"
+        id="Description"
+        class="form-control"
+        
+      ><%= oldPoke.Description %></textarea>
+    </div>
+
+    <button class="btn btn-success">Update!</button>
+  </form>
+
+  
     <a href="/pokemon/<%=oldPoke._id%>">Cancel</a>
   </body>
+
+

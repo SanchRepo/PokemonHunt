@@ -1,29 +1,38 @@
 <% layout("layouts/boilerplate") %>
 
 <body>
-    
-    <h1><%= pokemon.Name %> </h1>
-    <h2> <%= pokemon.Location %>    </h2>
-    <img src="<%= pokemon.Sprite %> " alt="">
-    <p><%= pokemon.Description  %> </p>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="card">
+        <img src="<%= pokemon.Sprite %>" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title"><%=pokemon.Name%></h5>
+          <p class="card-text">
+            <%=pokemon.Description%>
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><span class="fw-bold">Level:</span> <%=pokemon.Level%></li>
 
+          <li class="list-group-item"><span class="fw-bold">Nature:</span> <%=pokemon.Nature%></li>
+          <li class="list-group-item"><span class="fw-bold">Location:</span> <%= pokemon.Location %></li>
+          
+        </ul>
+        <div class="card-body">
+          <a href="/pokemon/<%= pokemon._id %>/edit " class="btn btn-warning"
+            >Edit</a
+          >
+          <a href="/pokemon" class="btn btn-success">Back to List</a>
 
-
-<form action="/pokemon/<%=pokemon._id%>?_method=DELETE" method="POST">
-
-<button>Delete</button>
-
-
-</form>
-
-
-    <footer>
-        <a href="/pokemon/<%= pokemon._id %>/edit ">Edit</a>
-        <a href="/pokemon">Back to List</a>
-    </footer>
-
-
+          <form
+            action="/pokemon/<%=pokemon._id%>?_method=DELETE"
+            method="POST"
+            class="d-inline"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-
-
-

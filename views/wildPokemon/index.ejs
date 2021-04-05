@@ -1,24 +1,26 @@
 <% layout("layouts/boilerplate") %>
 
 <body>
-    <h1> Current Wild Pokemon</h1>
+  <h1>Current Wild Pokemon</h1>
+  <div class="row">
     <% for( let pokemon of wildPokemon) { %>
-        <div class="card d-inline-block" style="width: 18rem;">
-            <img src="<%= pokemon.Sprite %> " class="card-img-top img-fluid" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><%=pokemon.Nature%> <%=pokemon.Name%></h5>
-              <p class="card-text"><%=pokemon.Description%></p>
-              <a href="/pokemon/<%=pokemon._id%>" class="btn btn-primary">Show Details</a>
-            </div>
-          </div>
 
-   <% } %>
-
-<footer>
-    Found a new pokemon?<a href="/pokemon/new"> Add here</a>
-
-</footer>
-
-
-
+    <div class="col-3">
+      <div class="card d-inline-block">
+        <img
+          src="<%= pokemon.Sprite %> "
+          class="card-img-top img-fluid"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Lvl <%=pokemon.Level%>. <%=pokemon.Name%></h5>
+          <p class="card-text"><%=pokemon.Description%></p>
+          <a href="/pokemon/<%=pokemon._id%>" class="btn btn-primary"
+            >Show Details</a
+          >
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
 </body>

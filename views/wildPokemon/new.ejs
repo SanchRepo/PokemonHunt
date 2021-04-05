@@ -4,6 +4,18 @@
   <h1 class="text-center">New Pokemon</h1>
   <form action="/pokemon" method="POST">
     <div class="mb-3">
+      <label for="level" id="level" class="form-label">Level</label>
+      <input
+        type="number"
+        min="1"
+        max="100"
+        name="pokemon[Level]"
+        id="level"
+        class="form-control"
+      />
+    </div>
+
+    <div class="mb-3">
       <label for="name" id="name" class="form-label">Name</label>
       <select name="pokemon[DexNum]" id="name" class="form-select">
         <% for(let pokemon of pokedex) { %>
